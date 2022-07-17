@@ -8,9 +8,9 @@ import pages.LoginPage;
 
 public class LoginSteps extends LoginPage {
 
-	@Given("user launch the browser")
-	public void user_launch_the_browser() {
-		browserLaunch();
+	@Given("user launch the {string} browser")
+	public void user_launch_the_browser(String browser) {
+		browserLaunch(browser);
 	}
 
 	@When("user enters the url {string}")
@@ -21,7 +21,7 @@ public class LoginSteps extends LoginPage {
 
 	@Then("the title of page should be {string}")
 	public void the_title_of_page_should_be(String title) {
-		System.out.println("Title of the page is::"+getTitle());
+		System.out.println("Title of the page is::" + getTitle());
 		hardAssert(getTitle(), title);
 	}
 
@@ -44,13 +44,13 @@ public class LoginSteps extends LoginPage {
 	public void user_should_close_the_browser() {
 		driver.close();
 	}
-	
+
 	@Then("the title of page should be {string} and message should appear as {string}")
 	public void the_title_of_page_should_be_and_message_should_appear_as(String title, String expectedMsg) {
-	   
+
 		hardAssert(title, getTitle());
 		waitforsec(3);
-		String actualMsg=driver.switchTo().alert().getText();
+		String actualMsg = driver.switchTo().alert().getText();
 		hardAssert(expectedMsg, actualMsg);
 	}
 }

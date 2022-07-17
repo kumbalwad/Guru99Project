@@ -11,8 +11,9 @@ import cucumber.api.junit.Cucumber;
 		glue= {"stepDefination"},
 		monochrome=true,
 		dryRun=true,
-		plugin= {"pretty","html:test-output"})
-
+		plugin= {"pretty","html:test-output"},
+		tags= {"regression"})
+		
 public class TestRunner {
 
 }
