@@ -8,9 +8,9 @@ import pages.LoginPage;
 
 public class LoginSteps extends LoginPage {
 
-	@Given("user launch the browser")
-	public void user_launch_the_browser() {
-		browserLaunch();
+	@Given("user launch the {string} browser")
+	public void user_launch_the_browser(String browser) {
+		browserLaunch(browser);
 	}
 
 	@When("user enters the url {string}")

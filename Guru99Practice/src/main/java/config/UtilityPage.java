@@ -13,7 +13,6 @@ import base.FrameworkBase;
 public class UtilityPage extends FrameworkBase {
 	
 	public static String getTitle() {
-		
 		String title=driver.getTitle();
 		return title;
 	}
