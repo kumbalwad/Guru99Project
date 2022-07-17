@@ -50,7 +50,7 @@ public class LoginPage extends UtilityPage {
 
 		PageFactory.initElements(driver, this);
 		Assert.assertTrue(isDisplayed(logout));
-		implicitWait(6);
+		waitforsec(3);
 		logout.click();
 		waitforsec(3);
 		driver.switchTo().alert().accept();

@@ -10,11 +10,14 @@ public class LoginSteps extends LoginPage {
 
 	@Given("user launch the {string} browser")
 	public void user_launch_the_browser(String browser) {
+		log.info("user is launching the chrome browser");
 		browserLaunch(browser);
 	}
 
 	@When("user enters the url {string}")
 	public void user_enters_the_url(String url) {
+		log.info("user is navigating to url");
+		waitforsec(3);
 		driver.get(url);
 		driver.manage().window().maximize();
 	}
@@ -27,21 +30,25 @@ public class LoginSteps extends LoginPage {
 
 	@When("enters the valid username {string} and valid password {string}")
 	public void enters_the_valid_username_and_valid_password(String str1, String str2) {
+		log.info("user is entering the username and password");
 		enterCredential(str1, str2);
 	}
 
 	@And("user click on the login button")
 	public void user_click_on_the_login_button() {
 		clickOnLogin();
+		log.info("user is successfully loged in ");
 	}
 
 	@When("user logout")
 	public void user_logout() {
 		logoutMethod();
+		log.info("user is successfully loged out");
 	}
 
-	@Then("user should close the browser")
+	@And("user should close the browser")
 	public void user_should_close_the_browser() {
+		log.info("user is closing the browser");
 		driver.close();
 	}
 
@@ -51,6 +58,7 @@ public class LoginSteps extends LoginPage {
 		hardAssert(title, getTitle());
 		waitforsec(3);
 		String actualMsg = driver.switchTo().alert().getText();
+		log.error(actualMsg);
 		hardAssert(expectedMsg, actualMsg);
 	}
 }
